@@ -2,17 +2,16 @@
 ;;;
 ;;;
 
+;; This file is my customize based on purcell's emacs.d
+
+
+;;; Code:
+
 ;; Gui related
 ;; 只对GUI有效
 (set-face-attribute 'default nil :height 200)
 
 (global-set-key (kbd "M-x") 'helm-M-x)
-
-(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-
-(setq projectile-project-search-path '("~/workspace/bamboo/"
-                                       "~/workspace/bitbucket/"))
-
 
 ;; magit
 (setq magit-repository-directories
