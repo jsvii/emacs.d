@@ -126,6 +126,7 @@
   :config
   (progn
     (setq treemacs-collapse-dirs                 (if treemacs-python-executable 3 0)
+
           treemacs-deferred-git-apply-delay      0.5
           treemacs-directory-name-transformer    #'identity
           treemacs-display-in-side-window        t
@@ -145,7 +146,7 @@
           treemacs-no-png-images                 nil
           treemacs-no-delete-other-windows       t
           treemacs-project-follow-cleanup        nil
-          treemacs-persist-file                  (expand-file-name ".cache/treemacs-persist" user-emacs-directory)
+          treemacs-persist-file                  (expand-file-name ".treemacs/persist" (getenv "HOME"))
           treemacs-position                      'left
           treemacs-recenter-distance             0.1
           treemacs-recenter-after-file-follow    nil
