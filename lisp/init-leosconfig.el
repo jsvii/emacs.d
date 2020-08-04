@@ -1,17 +1,27 @@
-;;; init-leosconfig.el
+;;; init-leosconfig.el --- leos' customized config  -*- lexical-binding: t -*-
+;;; Commentary:
 ;;;
-;;;
-
-;; This file is my customize based on purcell's emacs.d
 
 
 ;;; Code:
+;;;
+;; use-packages
+;; helm
+;;  -- gui
 
-;; Gui related
-;; 只对GUI有效
-(set-face-attribute 'default nil :height 200)
+;; packages
+(require-package 'use-package)
 
-(global-set-key (kbd "M-x") 'helm-M-x)
+
+;; heml
+;; Helm is an Emacs framework for incremental completions and narrowing selections.
+(use-package helm
+  :ensure t
+  :init (global-set-key (kbd "M-x") 'helm-M-x)
+  )
+
+
+
 
 ;; magit
 (setq magit-repository-directories
@@ -206,7 +216,6 @@
 
 (require 'cc-mode)
 
-(use-package projectile :ensure t)
 (use-package yasnippet :ensure t)
 (use-package lsp-mode :ensure t)
 (use-package hydra :ensure t)
@@ -345,6 +354,10 @@ display latex in X mingServer."
             (start-process "Display Latex Image" nil "display" (latex-math-preview-make-png-file dot-tex)))
         (message "Not in a TeX mathematical expression.")))))
 
+
+;; gui
+;; 只对GUI有效
+(set-face-attribute 'default nil :height 200)
 
 
 (provide 'init-leosconfig)
