@@ -55,3 +55,19 @@ site-lisp/package/
 /smex-items
 /eln-cache/
 /projects
+
+
+
+## leo's
+eclipse.jdt.ls/
+gradle-wrapper.jar
+meghanada/
+pyim/
+site-lisp/elpa-mirror/
+site-lisp/plantuml-mode/
+workspace/
+request/*
+projectile*
+games/
+nov-places
+pyim-bigdict.pyim.gz
