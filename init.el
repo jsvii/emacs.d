@@ -171,7 +171,10 @@
 ;; Allow users to provide an optional "init-local" containing personal settings
 (require 'init-local nil t)
 
-(require 'init-leosconfig)
+
+(add-to-list 'load-path (expand-file-name "custom" user-emacs-directory))
+(require 'custom-init)
+
 
 
 (provide 'init)
