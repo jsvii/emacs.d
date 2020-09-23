@@ -54,7 +54,6 @@ site-lisp/package/
 /.lsp-session-v1
 /smex-items
 /eln-cache/
-/projects
 
 
 
@@ -71,3 +70,5 @@ projectile*
 games/
 nov-places
 pyim-bigdict.pyim.gz
+librime/*
+rime/*
