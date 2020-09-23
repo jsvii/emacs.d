@@ -24,7 +24,8 @@
        (proto (if no-ssl "http" "https")))
   (add-to-list 'package-archives (cons "melpa.cn" (concat proto "://elpa.emacs-china.org/melpa/")) t)
   (add-to-list 'package-archives (cons "gnu.cn" (concat proto "://elpa.emacs-china.org/gnu/")) t)
-  (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
+  (add-to-list 'package-archives (cons "org.cn" (concat proto "://elpa.emacs-china.org/org/")) t)
+  ;;
   ;; Official MELPA Mirror, in case necessary.
   ;;(add-to-list 'package-archives (cons "melpa-mirror" (concat proto "://www.mirrorservice.org/sites/melpa.org/packages/")) t)
   )
