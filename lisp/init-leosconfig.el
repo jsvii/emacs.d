@@ -47,65 +47,6 @@
 
 (require 'dash-docs)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;
-;; pyim input method
-;;
-;;
-(require 'pyim)
-(setq default-input-method "pyim")
-(require 'pyim-basedict)
-(require 'pyim-wbdict)
-(setq pyim-page-length 7)
-(after-load 'pyim
-  (setq pyim-punctuation-dict
-        '(("'" "‘" "’")
-          ("\"" "“" "”")
-          ("_" "——")
-          ("^" "…")
-          ("]" "】")
-          ("[" "【")
-          ("@" "◎")
-          ("?" "？")
-          (">" "》")
-          ("=" "＝")
-          ("<" "《")
-          (";" "；")
-          (":" "：")
-          ("\\" "、")
-          ("." "。")
-          ("-" "－")
-          ("," "，")
-          ("+" "＋")
-          ("*" "×")
-          (")" "）")
-          ("(" "（")
-          ("&" "※")
-          ("%" "％")
-          ("$" "￥")
-          ("#" "＃")
-          ("!" "！")
-          ("`" "・")
-          ("~" "～")
-          ("}" "』")
-          ("|" "÷")
-          ("{" "『"))))
-
-(defun pyim-toggle-pinyin ()
-  "`pyim-toggle-pinyin` 切换至拼音输入法"
-  (interactive)
-  (pyim-restart)
-  (setq pyim-default-scheme 'quanpin)
-  ;;
-  )
-
-(defun pyim-toggle-wubi ()
-  "`pyim-toggle-wubi` 切换至五笔输入法"
-  (interactive)
-  (pyim-restart)
-  (setq pyim-default-scheme 'wubi)
-  (pyim-wbdict-v98-enable))
-
 
 ;; eclim
 ;;(require 'eclim)
@@ -170,7 +111,7 @@
           treemacs-space-between-root-nodes      t
           treemacs-tag-follow-cleanup            t
           treemacs-tag-follow-delay              1.5
-          treemacs-width                         35)
+          treemacs-width                         30)
 
     ;; The default width and height of the icons is 22 pixels. If you are
     ;; using a Hi-DPI display, uncomment this to double the icon size.
@@ -212,9 +153,9 @@
   :ensure t)
 
 
-(require 'dap-java)
+;;(require 'dap-java)
 
-(require 'cc-mode)
+;;(require 'cc-mode)
 
 (use-package yasnippet :ensure t)
 (use-package lsp-mode :ensure t)
@@ -241,12 +182,6 @@
   [remap xref-find-references] #'lsp-ui-peek-find-references)
 
 
-(use-package lsp-treemacs
-  :config
-  (lsp-metals-treeview-enable t)
-  (setq lsp-metals-treeview-show-when-views-received t))
-
-
 ;; local nginx
 (setq dash-docs-docsets-url "http://localhost/feeds")
 (setq dash-docs-browser-func 'eww)
@@ -265,6 +200,49 @@
 
 
 
+
+
+;; erc
+;;(setq socks-override-functions 1)
+;;(setq socks-noproxy '("localhost"))
+;;(require 'socks)
+
+;;(setq erc-server-connect-function 'socks-open-network-stream)
+;;(setq socks-server (list "My socks server" "127.0.0.1" 1080 5))
+
+
+;;  workspace/*
+;;
+;;
+
+(after-load 'org
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   `((R . t)
+     (ditaa . t)
+     (dot . t)
+     (emacs-lisp . t)
+     (gnuplot . t)
+     (haskell . nil)
+     (latex . t)
+     (ledger . t)
+     (ocaml . nil)
+     (octave . t)
+     (plantuml . t)
+     (python . t)
+     (ruby . t)
+     (screen . nil)
+     (,(if (locate-library "ob-sh") 'sh 'shell) . t)
+     (makefile . t)
+     (sql . t)
+     (sqlite . t))))
+
+
+
+
+
+
+;; org
 (with-eval-after-load 'ox-latex
   (add-to-list 'org-latex-classes
                '("ctexartdocs"
@@ -304,43 +282,6 @@
                  ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
                  )))
 
-
-;; erc
-;;(setq socks-override-functions 1)
-;;(setq socks-noproxy '("localhost"))
-;;(require 'socks)
-
-;;(setq erc-server-connect-function 'socks-open-network-stream)
-;;(setq socks-server (list "My socks server" "127.0.0.1" 1080 5))
-
-
-;;  workspace/*
-;;
-;;
-
-(after-load 'org
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   `((R . t)
-     (ditaa . t)
-     (dot . t)
-     (emacs-lisp . t)
-     (gnuplot . t)
-     (haskell . nil)
-     (latex . t)
-     (ledger . t)
-     (ocaml . nil)
-     (octave . t)
-     (plantuml . t)
-     (python . t)
-     (ruby . t)
-     (screen . nil)
-     (,(if (locate-library "ob-sh") 'sh 'shell) . t)
-     (makefile . t)
-     (sql . t)
-     (sqlite . t))))
-
-
 (maybe-require-package 'latex-math-preview)
 (after-load 'latex-math-preview
   (defun xserver-latex-math-preview ()
@@ -353,6 +294,7 @@ display latex in X mingServer."
             (setenv "DISPLAY" "localhost:10.0")
             (start-process "Display Latex Image" nil "display" (latex-math-preview-make-png-file dot-tex)))
         (message "Not in a TeX mathematical expression.")))))
+
 
 
 ;; gui

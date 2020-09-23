@@ -58,13 +58,6 @@ site-lisp/package/
 
 
 
-
-
-
-
-
-
-
 ## leo's
 eclipse.jdt.ls/
 gradle-wrapper.jar
@@ -78,3 +71,5 @@ projectile*
 games/
 nov-places
 pyim-bigdict.pyim.gz
+librime/*
+rime/*
