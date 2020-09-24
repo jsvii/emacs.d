@@ -72,3 +72,5 @@ nov-places
 pyim-bigdict.pyim.gz
 librime/*
 rime/*
+.extension
+projects

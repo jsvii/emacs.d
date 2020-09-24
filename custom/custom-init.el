@@ -6,6 +6,7 @@
 (require 'custom-org)
 (require 'custom-gui)
 (require 'custom-utils)
+(require 'custom-lsp)
 
 (provide 'custom-init)
 ;;; custom-init.el ends here
