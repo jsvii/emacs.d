@@ -81,6 +81,9 @@
 
 (maybe-require-package 'dash-docs)
 
+(maybe-require-package 'sdcv)
+
+
 (setq package-check-signature nil)
 
 
