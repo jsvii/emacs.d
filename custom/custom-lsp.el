@@ -4,13 +4,32 @@
 
 (require-package 'lsp-mode)
 (require-package 'lsp-ui)
+(require-package 'lsp-treemacs)
+(require-package 'hydra)
+(require-package 'helm-lsp)
 
-(require 'lsp-ui)
-(require 'lsp-ui-imenu)
+
+;; disable inline documentation
+(setq lsp-ui-sideline-enable t)
+;; disable showing docs on hover at the top of the window
+(setq lsp-ui-doc-enable nil)
+(setq lsp-ui-imenu-enable t)
+(setq lsp-ui-imenu-kind-position 'top)
+(setq lsp-treemacs-sync-mode t)
 
 (with-eval-after-load 'company
   (with-eval-after-load 'company-lsp)
   )
+
+(require 'lsp-ui)
+(require 'lsp-ui-imenu)
+(require 'lsp-treemacs)
+(require 'helm-lsp)
+
+
+
+
+
 
 (with-eval-after-load 'lsp-ui
   (progn
@@ -32,12 +51,23 @@
   )
 
 
-
 (require-package 'dap-mode)
-(require 'dap-chrome)
+
+
+(with-eval-after-load 'dap-mode
+  (progn
+    (require 'dap-chrome)
+    (require 'dap-node)
+    (require 'dap-ui)
+    (setq dap-print-io t)
+    (dap-mode t)
+    (dap-ui-mode t)
+    )
+  )
 
 
 
+(setq dap-auto-configure-features '(sessions locals controls tooltip))
 
 
 (provide 'custom-lsp)
