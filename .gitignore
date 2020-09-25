@@ -75,3 +75,4 @@ librime/*
 rime/*
 .extension
 projects
+.dap-breakpoints
