@@ -2,15 +2,12 @@
 ;;; Commentary:
 ;;; Code:
 
-(maybe-require-package 'helm)
-
-(with-eval-after-load 'helm
-  (global-set-key (kbd "M-x") 'helm-M-x))
-
 (maybe-require-package 'treemacs)
 (maybe-require-package 'treemacs-projectile)
 (maybe-require-package 'treemacs-icons-dired)
 (maybe-require-package 'treemacs-magit)
+
+;;(require 'treemacs)
 
 (with-eval-after-load 'treemacs
   (progn
