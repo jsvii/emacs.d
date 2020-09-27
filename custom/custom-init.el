@@ -7,8 +7,6 @@
 (require 'custom-ui)
 (require 'custom-utils)
 (require 'custom-lsp)
-;;(require 'custom-dap-demo)
-;;
 
 (provide 'custom-init)
 ;;; custom-init.el ends here

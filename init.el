@@ -9,6 +9,14 @@
 ;; Produce backtraces when errors occur: can be helpful to diagnose startup issues
 ;;(setq debug-on-error t)
 
+;; proxy
+;;
+(setq url-proxy-services
+      '(("no_proxy" . "^\\(localhost\\|127.*\\|mysuse\\)")
+        ("http" . "192.168.1.1:3128")
+        ("https" . "192.168.1.1:3128")))
+
+
 (let ((minver "26.1"))
   (when (version< emacs-version minver)
     (error "Your Emacs is too old -- this config requires v%s or higher" minver)))

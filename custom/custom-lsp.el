@@ -23,12 +23,8 @@
 
 (require 'lsp-ui)
 (require 'lsp-ui-imenu)
-(require 'lsp-treemacs)
+;;(require 'lsp-treemacs)
 (require 'helm-lsp)
-
-
-
-
 
 
 (with-eval-after-load 'lsp-ui
@@ -50,9 +46,7 @@
     )
   )
 
-
 (require-package 'dap-mode)
-
 
 (with-eval-after-load 'dap-mode
   (progn
@@ -65,10 +59,7 @@
     )
   )
 
-
-
 (setq dap-auto-configure-features '(sessions locals controls tooltip))
-
 
 (provide 'custom-lsp)
 
