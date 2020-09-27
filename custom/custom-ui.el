@@ -24,9 +24,9 @@
        ))
   (maybe-require-package emacs-theme))
 
-
 (setq-default custom-enabled-themes
-              '(gruvbox-dark-medium))
+              '(sanityinc-tomorrow-eighties
+                gruvbox-dark-medium))
 
 (provide 'custom-ui)
 ;;; custom-ui.el ends here
