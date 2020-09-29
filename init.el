@@ -13,15 +13,15 @@
 ;;
 (setq url-proxy-services
       '(("no_proxy" . "^\\(localhost\\|127.*\\|mysuse\\)")
-        ("http" . "192.168.1.1:3128")
-        ("https" . "192.168.1.1:3128")))
-
+        ("http" . "192.168.1.1:8118")
+        ("https" . "192.168.1.1:8118")))
 
 (let ((minver "26.1"))
   (when (version< emacs-version minver)
     (error "Your Emacs is too old -- this config requires v%s or higher" minver)))
 (when (version< emacs-version "27.1")
   (message "Your Emacs is old, and some functionality in this config will be disabled. Please upgrade if possible."))
+
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (require 'init-benchmarking) ;; Measure startup time
