@@ -8,8 +8,8 @@
 
 ;; javascript
 ;;
-(setq js2-basic-offset 4)
-
+(when (maybe-require-package 'undo-tree)
+  (global-undo-tree-mode))
 
 (provide 'custom-coding-style)
 ;;; custom-coding-style.el ends here
