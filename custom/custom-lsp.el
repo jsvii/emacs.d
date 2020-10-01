@@ -45,7 +45,7 @@
                python-mode-hook
                web-mode-hook))
       (add-hook hook #'lsp))
-    (require 'lsp-javascript)
+;;    (require 'lsp-javascript)
     )
 
   ;; lsp-ui

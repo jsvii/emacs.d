@@ -11,10 +11,10 @@
 
 ;; proxy
 ;;
-(setq url-proxy-services
-      '(("no_proxy" . "^\\(localhost\\|127.*\\|mysuse\\)")
-        ("http" . "192.168.1.1:8118")
-        ("https" . "192.168.1.1:8118")))
+;;(setq url-proxy-services
+;;      '(("no_proxy" . "^\\(localhost\\|127.*\\|mysuse\\)")
+;;        ("http" . "192.168.1.1:8118")
+;;        ("https" . "192.168.1.1:8118")))
 
 (let ((minver "26.1"))
   (when (version< emacs-version minver)
