@@ -9,12 +9,11 @@
 ;; Produce backtraces when errors occur: can be helpful to diagnose startup issues
 ;;(setq debug-on-error t)
 
-
-
 (setq url-proxy-services
       '(("no_proxy" . "^\\(localhost\\|127.*\\|mysuse\\)")
         ("http" . "192.168.1.1:8118")
         ("https" . "192.168.1.1:8118")))
+
 
 (let ((minver "25.1"))
   (when (version< emacs-version minver)
