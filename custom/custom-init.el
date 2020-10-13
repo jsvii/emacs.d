@@ -3,10 +3,6 @@
 ;;; Code:
 
 ;; use-package in future
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-
 (provide 'custom-profile)
 (require 'custom-cn)
 (require 'custom-org)
