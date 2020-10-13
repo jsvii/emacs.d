@@ -4,15 +4,16 @@
 
 (when (maybe-require-package 'web-mode)
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
-  (add-hook 'web-mode-hook
-            (lambda ()
-              (when (string-equal "tsx" (file-name-extension buffer-file-name))
-                (setup-tide-mode))))
   (with-eval-after-load 'flycheck
     (flycheck-add-mode 'typescript-tslint 'web-mode)
     )
   )
 
+
+;;;
+;;; npm i -g javascript-typescript-langserver
+;;; npm i -g typescript-language-server; npm i -g typescript
+;;;
 (when (maybe-require-package 'lsp-mode)
   ;; lsp configs
   (setq lsp-auto-guess-root t)
@@ -45,7 +46,7 @@
                python-mode-hook
                web-mode-hook))
       (add-hook hook #'lsp))
-;;    (require 'lsp-javascript)
+    ;;    (require 'lsp-javascript)
     )
 
   ;; lsp-ui
@@ -72,8 +73,7 @@
       )
     )
   (when (maybe-require-package 'lsp-treemacs)
-    (setq lsp-treemacs-sync-mode t)
-    )
+    (setq lsp-treemacs-sync-mode t))
 
   (with-eval-after-load 'ivy
     (maybe-require-package 'lsp-ivy))
