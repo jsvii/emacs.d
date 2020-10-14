@@ -1,5 +1,6 @@
 ;;; custom-profile.el --- emacs profile -*- lexical-binding: t -*-
 ;;; Commentary:
+;;; 性能统计类
 ;;; Code:
 
 (setq gc-cons-threshold most-positive-fixnum

@@ -1,5 +1,6 @@
 ;;; custom-org.el --- org mode customes -*- lexical-binding: t -*-
 ;;; Commentary:
+;;; org 设置
 ;;; Code:
 
 (require-package 'org)

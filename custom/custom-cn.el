@@ -3,6 +3,7 @@
 ;;; Code:
 ;; not WSL, ssh client, macos
 ;; WSL: WSL1 has "-Microsoft", WSL2 has "-microsoft-standard"
+
 (when (and (not (getenv "SSH_CLIENT"))
            (not (string-match "-[Mm]icrosoft" operating-system-release))
            (not (eq system-type 'darwin)))
