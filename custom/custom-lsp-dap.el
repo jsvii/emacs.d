@@ -1,5 +1,6 @@
-;;; custom-lsp.el --- all lsp mode for development -*- lexical-binding: t -*-
+;;; custom-lsp-dap.el --- all lsp mode for development -*- lexical-binding: t -*-
 ;;; Commentary:
+;;; lsp & dap
 ;;; Code:
 (when (maybe-require-package 'web-mode)
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
@@ -18,6 +19,20 @@
   ;; lsp-ui
   (maybe-require-package 'lsp-ui)
   (maybe-require-package 'lsp-treemacs)
+  (maybe-require-package 'lsp-java)
+  (dolist (hook
+           '(c-mode-hook
+             c++-mode-hook
+             c-or-c++-mode-hook
+             java-mode-hook
+             js-mode-hook
+             js-jsx-mode-hook
+             js2-mode-hook
+             css-mode-hook
+             typescript-mode-hook
+             python-mode-hook
+             web-mode-hook))
+    (add-hook hook #'lsp))
   )
 
 (with-eval-after-load 'ivy
@@ -69,19 +84,27 @@
     (define-key lsp-ui-mode-map (kbd "C-c C-l e") 'lsp-execute-code-action)
     ))
 
-(dolist (hook
-         '(c-mode-hook
-           c++-mode-hook
-           c-or-c++-mode-hook
-           java-mode-hook
-           js-mode-hook
-           js-jsx-mode-hook
-           js2-mode-hook
-           css-mode-hook
-           typescript-mode-hook
-           python-mode-hook
-           web-mode-hook))
-  (add-hook hook #'lsp))
+;;; lsp-java
+(setq lsp-java-jdt-download-url "http://download.doc/jdt-language-server-latest.tar.gz")
 
-(provide 'custom-lsp)
-;;; custom-lsp.el ends here
+
+
+;;;; dap
+(require-package 'dap-mode)
+
+(with-eval-after-load 'dap-mode
+  (maybe-require-package 'dap-java)
+  (progn
+    (require 'dap-chrome)
+    (require 'dap-node)
+    (require 'dap-ui)
+    (setq dap-print-io t)
+    (dap-mode t)
+    (dap-ui-mode t)
+    ))
+
+(setq dap-auto-configure-features '(sessions locals controls tooltip))
+
+
+(provide 'custom-lsp-dap)
+;;; custom-lsp-dap.el ends here
