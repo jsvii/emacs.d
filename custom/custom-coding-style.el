@@ -5,6 +5,8 @@
 ;; sgml
 ;;
 (setq sgml-basic-offset 4)
+(setq js2-basic-offset 4)
+(setq js-indent-level 4)
 
 ;; javascript
 ;;

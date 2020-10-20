@@ -7,8 +7,6 @@
 (maybe-require-package 'treemacs-icons-dired)
 (maybe-require-package 'treemacs-magit)
 
-;;(require 'treemacs)
-
 (with-eval-after-load 'treemacs
   (progn
     (setq treemacs-collapse-dirs                 3
@@ -46,10 +44,10 @@
           treemacs-space-between-root-nodes      t
           treemacs-tag-follow-cleanup            t
           treemacs-tag-follow-delay              1.5
-          treemacs-width                         30)
+          treemacs-width                         22)
     ;; The default width and height of the icons is 22 pixels. If you are
     ;; using a Hi-DPI display, uncomment this to double the icon size.
-    (treemacs-resize-icons 44)
+    (treemacs-resize-icons 22)
     (treemacs-follow-mode t)
     (treemacs-filewatch-mode t)
     (treemacs-fringe-indicator-mode t)
