@@ -85,7 +85,8 @@
     ))
 
 ;;; lsp-java
-(setq lsp-java-jdt-download-url "http://download.doc/jdt-language-server-latest.tar.gz")
+(setq lsp-java-jdt-download-url "http://api.doc/jdt-language-server-latest.tar.gz")
+(setq lsp-java--download-root "http://api.doc/lsp-java/install/")
 
 
 
@@ -93,7 +94,7 @@
 (require-package 'dap-mode)
 
 (with-eval-after-load 'dap-mode
-  (maybe-require-package 'dap-java)
+  (require 'dap-java)
   (progn
     (require 'dap-chrome)
     (require 'dap-node)
