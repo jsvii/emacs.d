@@ -19,12 +19,12 @@
   ;; lsp-ui
   (maybe-require-package 'lsp-ui)
   (maybe-require-package 'lsp-treemacs)
-  (maybe-require-package 'lsp-java)
+;;  (maybe-require-package 'lsp-java)
   (dolist (hook
            '(c-mode-hook
              c++-mode-hook
              c-or-c++-mode-hook
-             java-mode-hook
+             ;;java-mode-hook
              js-mode-hook
              js-jsx-mode-hook
              js2-mode-hook
@@ -87,14 +87,15 @@
 ;;; lsp-java
 (setq lsp-java-jdt-download-url "http://api.doc/jdt-language-server-latest.tar.gz")
 (setq lsp-java--download-root "http://api.doc/lsp-java/install/")
-
+(setq lsp-java-java-path "/home/leo/.sdkman/candidates/java/11.0.2-open/bin/java")
+(setq lsp-java-maven-download-sources t)
 
 
 ;;;; dap
 (require-package 'dap-mode)
 
 (with-eval-after-load 'dap-mode
-  (require 'dap-java)
+;;  (require 'dap-java)
   (progn
     (require 'dap-chrome)
     (require 'dap-node)
