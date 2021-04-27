@@ -1,1 +1,12 @@
 #+TITLE: 个人emacs配置说明
+
+
+C-h v system-configuration-options
+
+system-configuration-options is a variable defined in ‘C source code’.
+Its value is
+"--with-x=no --without-xpm --without-jpeg --without-tiff --without-png --without-rsvg --with-x-toolkit=no --without-sound --with-mailutils --with-modules --with-gnutls=ifavailable"
+
+#+BEGIN_SRC bash
+--prefix=/usr --sysconfdir=/etc --libexecdir=/usr/lib --localstatedir=/var --with-x-toolkit=gtk3 --with-xft --with-wide-int --with-modules --with-cairo --with-harfbuzz 'CFLAGS=-march=x86-64 -mtune=generic -O2 -pipe -fno-plt' CPPFLAGS=-D_FORTIFY_SOURCE=2 LDFLAGS=-Wl,-O1,--sort-common,--as-needed,-z,relro,-z,now
+#+END_SRC

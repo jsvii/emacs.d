@@ -1,0 +1,5 @@
+(setq js2-strict-missing-semi-warning nil)
+(setq js2-basic-offset 2)
+(setq js-indent-level 2)
+(setq sgml-basic-offset 2)
+(setq css-indent-offset 2)
