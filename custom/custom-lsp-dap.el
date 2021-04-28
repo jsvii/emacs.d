@@ -10,16 +10,18 @@
     ))
 ;;;
 ;;;;;;;; javascript & typescript
-;;; npm i -g javascript-typescript-langserver
-;;; npm i -g typescript-language-server; npm i -g typescript
+;;;
+;;; npm i -g typescript-language-server typescript javascript-typescript-langserver
+;;;
 ;;;;;;;; css
+;;;
 ;;; npm install -g vscode-css-languageserver-bin
 ;;;
 (when (maybe-require-package 'lsp-mode)
   ;; lsp-ui
   (maybe-require-package 'lsp-ui)
   (maybe-require-package 'lsp-treemacs)
-;;  (maybe-require-package 'lsp-java)
+  ;;  (maybe-require-package 'lsp-java)
   (dolist (hook
            '(c-mode-hook
              c++-mode-hook
