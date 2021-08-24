@@ -8,7 +8,7 @@
 (require 'custom-org)
 (require 'custom-ui)
 (require 'custom-utils)
-(require 'custom-lsp-dap)
+(require 'custom-lsp)
 (require 'custom-coding-style)
 
 (provide 'custom-init)
