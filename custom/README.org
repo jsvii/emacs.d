@@ -14,3 +14,13 @@ Its value is
 #+BEGIN_SRC bash
 npm i -g javascript-typescript-langserver typescript-language-server typescript vscode-css-languageserver-bin
 #+END_SRC
+
+
+#+BEGIN_SRC bash
+## multi term c-x c-f 打开文件路径不正确解决
+if [ -n "$INSIDE_EMACS" ]; then
+    chpwd() { print -P "\033AnSiTc %d" }
+    print -P "\033AnSiTu %n"
+    print -P "\033AnSiTc %d"
+fi
+#+END_SRC

@@ -1,7 +1,12 @@
-;;; custom-lsp-dap.el --- all lsp mode for development -*- lexical-binding: t -*-
+;;; custom-lsp.el --- all lsp mode for development -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; lsp & dap
 ;;; Code:
+
+;;;; dap
+(maybe-require-package 'dap-mode)
+
+
 (when (maybe-require-package 'web-mode)
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
   (maybe-require-package 'flycheck)
@@ -27,11 +32,11 @@
              c++-mode-hook
              c-or-c++-mode-hook
              ;;java-mode-hook
-             js-mode-hook
-             js-jsx-mode-hook
-             js2-mode-hook
+             ;;js-mode-hook
+             ;;js-jsx-mode-hook
+             ;;js2-mode-hook
              css-mode-hook
-             typescript-mode-hook
+             ;;typescript-mode-hook
              python-mode-hook
              web-mode-hook))
     (add-hook hook #'lsp))
@@ -93,11 +98,8 @@
 (setq lsp-java-maven-download-sources t)
 
 
-;;;; dap
-(require-package 'dap-mode)
-
 (with-eval-after-load 'dap-mode
-;;  (require 'dap-java)
+  ;;  (require 'dap-java)
   (progn
     (require 'dap-chrome)
     (require 'dap-node)
@@ -109,6 +111,42 @@
 
 (setq dap-auto-configure-features '(sessions locals controls tooltip))
 
+;; (with-eval-after-load 'eglot
+;;   (progn
+;;     (add-to-list 'eglot-server-programs '((js-mode typescript-mode) . (eglot-deno "deno" "lsp")))
+;;     (defclass eglot-deno (eglot-lsp-server) ()
+;;       :documentation "A custom class for deno lsp.")
+;;     (cl-defmethod eglot-initialization-options ((server eglot-deno))
+;;       "Passes through required deno initialization options"
+;;       (list :enable t
+;;             :lint t))
+;;     ))
 
-(provide 'custom-lsp-dap)
+
+(when (maybe-require-package 'tide)
+  (progn
+    (defun setup-tide-mode ()
+      (interactive)
+      (tide-setup)
+      (flycheck-mode +1)
+      (setq flycheck-check-syntax-automatically '(save mode-enabled))
+      (eldoc-mode +1)
+      (tide-hl-identifier-mode +1)
+      ;; company is an optional dependency. You have to
+      ;; install it separately via package-install
+      ;; `M-x package-install [ret] company`
+      (company-mode +1))
+    (add-hook 'typescript-mode-hook #'setup-tide-mode)
+    (add-hook 'before-save-hook 'tide-format-before-save)
+    (add-hook 'web-mode-hook
+              (lambda ()
+                (when (string-equal "tsx" (file-name-extension buffer-file-name))
+                  (setup-tide-mode))))
+    (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+    ))
+
+
+
+
+(provide 'custom-lsp)
 ;;; custom-lsp-dap.el ends here
