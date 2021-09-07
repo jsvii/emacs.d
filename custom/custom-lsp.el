@@ -38,7 +38,8 @@
              css-mode-hook
              ;;typescript-mode-hook
              python-mode-hook
-             web-mode-hook))
+             ;;web-mode-hook
+             ))
     (add-hook hook #'lsp))
   )
 
@@ -113,16 +114,19 @@
 
 ;; (with-eval-after-load 'eglot
 ;;   (progn
-;;     (add-to-list 'eglot-server-programs '((js-mode typescript-mode) . (eglot-deno "deno" "lsp")))
+;;     ;;(add-to-list 'eglot-server-programs '((js-mode typescript-mode) . (eglot-deno "deno" "lsp")))
 ;;     (defclass eglot-deno (eglot-lsp-server) ()
 ;;       :documentation "A custom class for deno lsp.")
+;;     (add-to-list 'eglot-server-programs '(vue-mode "vls"))
 ;;     (cl-defmethod eglot-initialization-options ((server eglot-deno))
 ;;       "Passes through required deno initialization options"
 ;;       (list :enable t
 ;;             :lint t))
+;;
 ;;     ))
 
 
+;; tide 容易产生bug，没有eglot稳定
 (when (maybe-require-package 'tide)
   (progn
     (defun setup-tide-mode ()
@@ -146,7 +150,7 @@
     ))
 
 
-
+;;
 
 (provide 'custom-lsp)
 ;;; custom-lsp-dap.el ends here

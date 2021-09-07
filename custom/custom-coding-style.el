@@ -31,6 +31,9 @@
   (setq css-indent-offset 4)
   )
 
+(custom-codingstyle4)
+
+(add-hook 'find-file-hook 'custom-remove-dos-eol)
 
 ;; javascript
 ;;
