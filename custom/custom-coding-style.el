@@ -33,7 +33,15 @@
 
 (custom-codingstyle4)
 
-(add-hook 'find-file-hook 'custom-remove-dos-eol)
+;;(add-hook 'find-file-hook 'custom-remove-dos-eol)
+
+
+(defun node-repl ()
+  "start a node.js repl"
+  (interactive)
+  (setenv "NODE_NO_READLINE" "1") ;avoid fancy terminal codes
+  (pop-to-buffer (make-comint "node-repl" "node" nil "--interactive")))
+
 
 ;; javascript
 ;;
