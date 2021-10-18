@@ -13,7 +13,9 @@
   (with-eval-after-load 'flycheck
     (flycheck-add-mode 'typescript-tslint 'web-mode)
     ))
-;;;
+
+;;; @deprecated
+;;; use tide as lsp server for typescript
 ;;;;;;;; javascript & typescript
 ;;;
 ;;; npm i -g typescript-language-server typescript javascript-typescript-langserver
@@ -22,21 +24,22 @@
 ;;;
 ;;; npm install -g vscode-css-languageserver-bin
 ;;;
+
 (when (maybe-require-package 'lsp-mode)
   ;; lsp-ui
   (maybe-require-package 'lsp-ui)
   (maybe-require-package 'lsp-treemacs)
-  ;;  (maybe-require-package 'lsp-java)
+  (maybe-require-package 'lsp-java)
   (dolist (hook
            '(c-mode-hook
              c++-mode-hook
              c-or-c++-mode-hook
-             ;;java-mode-hook
+             java-mode-hook
+             css-mode-hook
+             ;;typescript-mode-hook
              ;;js-mode-hook
              ;;js-jsx-mode-hook
              ;;js2-mode-hook
-             css-mode-hook
-             ;;typescript-mode-hook
              python-mode-hook
              ;;web-mode-hook
              ))
@@ -93,9 +96,9 @@
     ))
 
 ;;; lsp-java
-(setq lsp-java-jdt-download-url "http://api.doc/jdt-language-server-latest.tar.gz")
-(setq lsp-java--download-root "http://api.doc/lsp-java/install/")
-(setq lsp-java-java-path "/home/leo/.sdkman/candidates/java/11.0.2-open/bin/java")
+;;(setq lsp-java-jdt-download-url "http://api.doc/jdt-language-server-latest.tar.gz")
+;;(setq lsp-java--download-root "http://api.doc/lsp-java/install/")
+(setq lsp-java-java-path "/home/leo/.bin/jdk1.8.0_281/bin/java")
 (setq lsp-java-maven-download-sources t)
 
 
@@ -112,45 +115,7 @@
 
 (setq dap-auto-configure-features '(sessions locals controls tooltip))
 
-;; (with-eval-after-load 'eglot
-;;   (progn
-;;     ;;(add-to-list 'eglot-server-programs '((js-mode typescript-mode) . (eglot-deno "deno" "lsp")))
-;;     (defclass eglot-deno (eglot-lsp-server) ()
-;;       :documentation "A custom class for deno lsp.")
-;;     (add-to-list 'eglot-server-programs '(vue-mode "vls"))
-;;     (cl-defmethod eglot-initialization-options ((server eglot-deno))
-;;       "Passes through required deno initialization options"
-;;       (list :enable t
-;;             :lint t))
-;;
-;;     ))
-
-
-;; tide 容易产生bug，没有eglot稳定
-(when (maybe-require-package 'tide)
-  (progn
-    (defun setup-tide-mode ()
-      (interactive)
-      (tide-setup)
-      (flycheck-mode +1)
-      (setq flycheck-check-syntax-automatically '(save mode-enabled))
-      (eldoc-mode +1)
-      (tide-hl-identifier-mode +1)
-      ;; company is an optional dependency. You have to
-      ;; install it separately via package-install
-      ;; `M-x package-install [ret] company`
-      (company-mode +1))
-    (add-hook 'typescript-mode-hook #'setup-tide-mode)
-    (add-hook 'before-save-hook 'tide-format-before-save)
-    (add-hook 'web-mode-hook
-              (lambda ()
-                (when (string-equal "tsx" (file-name-extension buffer-file-name))
-                  (setup-tide-mode))))
-    (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
-    ))
-
-
-;;
 
 (provide 'custom-lsp)
-;;; custom-lsp-dap.el ends here
+
+;;; custom-lsp.el ends here

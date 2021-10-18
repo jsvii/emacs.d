@@ -51,5 +51,10 @@
 (when (maybe-require-package 'editorconfig)
   (editorconfig-mode 1))
 
+(when (maybe-require-package 'prettier)
+  (progn
+    (add-hook 'after-init-hook #'global-prettier-mode)
+    ))
+
 (provide 'custom-coding-style)
 ;;; custom-coding-style.el ends here
