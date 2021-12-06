@@ -10,10 +10,9 @@
 ;;(setq debug-on-error t)
 
 (setq url-proxy-services
-      '(("no_proxy" . "^\\(localhost\\|127.*\\|mysuse\\)")
-        ("http" . "192.168.1.1:8118")
-        ("https" . "192.168.1.1:8118")))
-
+      '(("no_proxy" . "^\\(localhost\\|10\\..*\\|192\\.168\\..*\\)")
+        ("http" . "192.168.2.91:1081")
+        ("https" . "192.168.2.91:1081")))
 
 (let ((minver "25.1"))
   (when (version< emacs-version minver)
