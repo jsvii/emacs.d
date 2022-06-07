@@ -6,14 +6,6 @@
 ;;;; dap
 (maybe-require-package 'dap-mode)
 
-
-(when (maybe-require-package 'web-mode)
-  (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
-  (maybe-require-package 'flycheck)
-  (with-eval-after-load 'flycheck
-    (flycheck-add-mode 'typescript-tslint 'web-mode)
-    ))
-
 ;;; @deprecated
 ;;; use tide as lsp server for typescript
 ;;;;;;;; javascript & typescript
@@ -30,20 +22,20 @@
   (maybe-require-package 'lsp-ui)
   (maybe-require-package 'lsp-treemacs)
   ;;(maybe-require-package 'lsp-java)
-  (dolist (hook
-           '(c-mode-hook
-             c++-mode-hook
-             c-or-c++-mode-hook
-             ;;java-mode-hook
-             css-mode-hook
-             ;;typescript-mode-hook
-             ;;js-mode-hook
-             ;;js-jsx-mode-hook
-             ;;js2-mode-hook
-             python-mode-hook
-             ;;web-mode-hook
-             ))
-    (add-hook hook #'lsp))
+  ;;  (dolist (hook
+  ;;           '(c-mode-hook
+  ;;             c++-mode-hook
+  ;;             c-or-c++-mode-hook
+  ;;             ;;java-mode-hook
+  ;;             css-mode-hook
+  ;;             ;;typescript-mode-hook
+  ;;             ;;js-mode-hook
+  ;;             ;;js-jsx-mode-hook
+  ;;             ;;js2-mode-hook
+  ;;             python-mode-hook
+  ;;             ;;web-mode-hook
+  ;;             ))
+  ;;    (add-hook hook #'lsp))
   )
 
 (with-eval-after-load 'ivy
@@ -98,8 +90,9 @@
 ;;; lsp-java
 ;;(setq lsp-java-jdt-download-url "http://api.doc/jdt-language-server-latest.tar.gz")
 ;;(setq lsp-java--download-root "http://api.doc/lsp-java/install/")
-(setq lsp-java-java-path "/home/leo/.bin/jdk-12.0.2/bin/java")
-(setq lsp-java-import-gradle-java-home  "/home/leo/.bin/jdk-12.0.2/bin/java")
+(setenv "JAVA_HOME" "/home/leo/.jenv/versions/11.0.14/")
+(setq lsp-java-java-path "/home/leo/.jenv/versions/11.0.14/bin/java")
+(setq lsp-java-import-gradle-java-home  "/home/leo/.jenv/versions/11.0.14/")
 (setq lsp-java-maven-download-sources t)
 (setq lsp-log-io t)
 

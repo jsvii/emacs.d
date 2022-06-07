@@ -23,7 +23,7 @@
               (lambda ()
                 (when (string-equal "tsx" (file-name-extension buffer-file-name))
                   (setup-tide-mode))))
-    (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
     ))
 
 (provide 'custom-typescript)

@@ -5,10 +5,12 @@
 ;;proxy for install
 (setq url-proxy-services
       '(("no_proxy" . "^\\(localhost\\|10\\..*\\|192\\.168\\..*\\)")
-        ("http" . "192.168.2.91:1081")
-        ("https" . "192.168.2.91:1081")))
+        ("http" . "172.31.1.90:7890")
+        ("https" . "172.31.1.90:7890")))
 
 ;; use-package in future
+
+
 
 
 (require 'custom-profile)
@@ -16,10 +18,10 @@
 (require 'custom-org)
 (require 'custom-ui)
 (require 'custom-utils)
-;;(require 'custom-lsp)
+(require 'custom-lsp)
 (require 'custom-coding-style)
 (require 'custom-typescript)
-(require 'custom-meghanada)
+;;(require 'custom-meghanada)
 
 (provide 'custom-init)
 ;;; custom-init.el ends here

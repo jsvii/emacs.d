@@ -382,6 +382,7 @@ typical word processor."
       (sh . t) ;; obsolete
       (shell . t)
       (sql . t)
+      (mermaid . t)
       (sqlite . t)))))
 
 
