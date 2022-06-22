@@ -11,8 +11,8 @@
 
 (setq url-proxy-services
       '(("no_proxy" . "^\\(localhost\\|10\\..*\\|192\\.168\\..*\\)")
-        ("http" . "192.168.2.91:1081")
-        ("https" . "192.168.2.91:1081")))
+        ("http" . "leoproxyhost:7890")
+        ("https" . "leoproxyhost:7890")))
 
 (let ((minver "25.1"))
   (when (version< emacs-version minver)

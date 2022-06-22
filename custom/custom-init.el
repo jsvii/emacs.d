@@ -3,10 +3,11 @@
 ;;; Code:
 
 ;;proxy for install
-(setq url-proxy-services
-      '(("no_proxy" . "^\\(localhost\\|10\\..*\\|192\\.168\\..*\\)")
-        ("http" . "172.31.1.90:7890")
-        ("https" . "172.31.1.90:7890")))
+
+;;(setq url-proxy-services
+;;      '(("no_proxy" . "^\\(localhost\\|10\\..*\\|192\\.168\\..*\\)")
+;;        ("http" . "leoproxyhost:7890")
+;;        ("https" . "leoproxyhost:7890")))
 
 ;; use-package in future
 
