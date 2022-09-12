@@ -15,7 +15,6 @@
 
 
 (require 'custom-profile)
-(require 'custom-cn)
 (require 'custom-org)
 (require 'custom-ui)
 (require 'custom-utils)
@@ -23,6 +22,7 @@
 (require 'custom-coding-style)
 (require 'custom-typescript)
 ;;(require 'custom-meghanada)
+(require 'custom-cn)
 
 (provide 'custom-init)
 ;;; custom-init.el ends here
