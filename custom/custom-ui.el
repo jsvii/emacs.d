@@ -17,7 +17,6 @@
        zenburn-theme
        solarized-theme
        monokai-theme
-       gruvbox-theme
        material-theme
        ample-theme
        jazz-theme
@@ -25,8 +24,7 @@
   (maybe-require-package emacs-theme))
 
 (setq-default custom-enabled-themes
-              '(sanityinc-tomorrow-eighties
-                gruvbox-dark-medium))
+              '(sanityinc-tomorrow-eighties                ))
 
 (provide 'custom-ui)
 ;;; custom-ui.el ends here

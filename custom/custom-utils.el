@@ -7,6 +7,9 @@
 (maybe-require-package 'treemacs-icons-dired)
 (maybe-require-package 'treemacs-magit)
 
+
+
+
 (with-eval-after-load 'treemacs
   (progn
     (setq treemacs-collapse-dirs                 3
@@ -29,7 +32,7 @@
           treemacs-no-png-images                 nil
           treemacs-no-delete-other-windows       t
           treemacs-project-follow-cleanup        nil
-          treemacs-persist-file                  (expand-file-name ".treemacs/persist" (getenv "HOME"))
+          treemacs-persist-file                  (expand-file-name "workspace/leo/os/setting/emacs/treemacs.persis.file.org" (getenv "HOME"))
           treemacs-position                      'left
           treemacs-recenter-distance             0.1
           treemacs-recenter-after-file-follow    nil
@@ -44,6 +47,7 @@
           treemacs-space-between-root-nodes      t
           treemacs-tag-follow-cleanup            t
           treemacs-tag-follow-delay              1.5
+          treemacs-read-string-input             'from-minibuffer
           treemacs-width                         26)
     ;; The default width and height of the icons is 22 pixels. If you are
     ;; using a Hi-DPI display, uncomment this to double the icon size.

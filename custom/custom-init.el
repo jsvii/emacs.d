@@ -5,7 +5,7 @@
 ;; use-package in future
 
 
-(require 'custom-profile)
+;;(require 'custom-profile)
 (require 'custom-cn)
 (require 'custom-org)
 (require 'custom-ui)
