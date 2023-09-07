@@ -12,9 +12,7 @@
 (require 'custom-utils)
 (require 'custom-lsp)
 (require 'custom-coding-style)
-(require 'custom-typescript)
-
-(setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
+(require 'custom-misc)
 
 (provide 'custom-init)
 ;;; custom-init.el ends here
