@@ -10,11 +10,7 @@
 ;;        ("https" . "leoproxyhost:7890")))
 
 ;; use-package in future
-
-
-
-
-(require 'custom-profile)
+;;(require 'custom-profile)
 (require 'custom-org)
 (require 'custom-ui)
 (require 'custom-utils)

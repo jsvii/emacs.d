@@ -9,11 +9,6 @@
 ;; Produce backtraces when errors occur: can be helpful to diagnose startup issues
 ;;(setq debug-on-error t)
 
-(setq url-proxy-services
-      '(("no_proxy" . "^\\(localhost\\|10\\..*\\|192\\.168\\..*\\)")
-        ("http" . "leoproxyhost:7890")
-        ("https" . "leoproxyhost:7890")))
-
 (let ((minver "25.1"))
   (when (version< emacs-version minver)
     (error "Your Emacs is too old -- this config requires v%s or higher" minver)))
