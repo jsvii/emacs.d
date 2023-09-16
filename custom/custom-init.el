@@ -11,6 +11,7 @@
 
 ;; use-package in future
 ;;(require 'custom-profile)
+(require 'custom-cn)
 (require 'custom-org)
 (require 'custom-ui)
 (require 'custom-utils)
@@ -18,7 +19,7 @@
 (require 'custom-coding-style)
 (require 'custom-typescript)
 ;;(require 'custom-meghanada)
-(require 'custom-cn)
+
 
 (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
 
