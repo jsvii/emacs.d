@@ -46,10 +46,16 @@
 ;; javascript
 ;;
 (when (maybe-require-package 'undo-tree)
-  (global-undo-tree-mode))
+  (setq undo-tree-history-directory-alist `(("." . "~/.emacs.d/undo/")))
+  (with-eval-after-load 'undo-tree
+    (global-undo-tree-mode)))
+
+;;(global-undo-tree-mode)
 
 (when (maybe-require-package 'editorconfig)
-  (editorconfig-mode 1))
+  (with-eval-after-load 'editorconfig
+    (editorconfig-mode 1))
+  )
 
 (when (maybe-require-package 'prettier)
   (progn

@@ -32,14 +32,14 @@
                    :font (font-spec :family font
                                     :weight 'normal
                                     :slant 'normal
-                                    :size (cond ((eq system-type 'gnu/linux) 24.0)
+                                    :size (cond ((eq system-type 'gnu/linux) 20)
                                                 ((eq system-type 'windows-nt) 12.5)))))
   (cl-loop for font in '("OpenSansEmoji" "Noto Color Emoji" "Segoe UI Emoji"
                          "EmojiOne Color" "Apple Color Emoji" "Symbola" "Symbol")
            when (font-installed-p font)
            return (set-fontset-font t 'unicode
                                     (font-spec :family font
-                                               :size (cond ((eq system-type 'gnu/linux) 20)
+                                               :size (cond ((eq system-type 'gnu/linux) 18)
                                                            ((eq system-type 'windows-nt) 15.0)))
                                     nil 'prepend))
   (cl-loop for font in '("Sarasa Mono Slab SC" "思源黑体 CN" "思源宋体 CN" "微软雅黑 CN"
@@ -51,7 +51,7 @@
                                     (font-spec :name font
                                                :weight 'normal
                                                :slant 'normal
-                                               :size (cond ((eq system-type 'gnu/linux) 20.0)
+                                               :size (cond ((eq system-type 'gnu/linux) 18.0)
                                                            ((eq system-type 'windows-nt) 15.0)))))
   (cl-loop for font in '("HanaMinB" "SimSun-ExtB")
            when (font-installed-p font)
@@ -59,7 +59,7 @@
                                     (font-spec :name font
                                                :weight 'normal
                                                :slant 'normal
-                                               :size (cond ((eq system-type 'gnu/linux) 20.0)
+                                               :size (cond ((eq system-type 'gnu/linux) 18.0)
                                                            ((eq system-type 'windows-nt) 15.0))))))
 
 
