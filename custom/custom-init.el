@@ -18,8 +18,6 @@
 ;;(require 'custom-lsp)
 (require 'custom-coding-style)
 (require 'custom-typescript)
-;;(require 'custom-meghanada)
-
 
 (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
 

@@ -1,22 +1,22 @@
 ;;; custom-cn.el --- chinese environment -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
+
+;; https://github.com/DogLooksGood/emacs-rime
+;; https://github.com/rime/librime
 (when (require-package 'rime)
+  (if (eq system-type 'darwin) (setq rime-librime-root "~/.emacs.d/librime/dist"))
   (setq rime-show-candidate 'popup)
   (setq default-input-method 'rime)
   (require 'rime)
   )
 
-
-;; (set-face-attribute 'default nil :font (font-spec :family "JetBrains Mono" :size 24))
-;; (set-fontset-font t 'unicode (font-spec :family "Noto Color Emoji" :size 24))
-;; (set-fontset-font t '(#x2ff0 . #x9ffc) (font-spec :family "Sarasa Mono Slab SC" :size 24 ))
-
-
+;;; font for linux desktop
 (defun font-installed-p (font-name)
   "Check if font with FONT-NAME is available."
   (find-font (font-spec :name font-name)))
-(when (display-graphic-p)
+
+(when (and (display-graphic-p) (eq system-type 'gnu/linux))
   (cl-loop for font in '("JetBrains Mono" "Cascadia Code" "SF Mono" "Source Code Pro"
                          "Fira Code" "Menlo" "Monaco" "Dejavu Sans Mono"
                          "Lucida Console" "Consolas" "SAS Monospace" "Iosevka Nerd Font Mono" )
