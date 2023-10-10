@@ -70,13 +70,14 @@
 
 (global-set-key (kbd "C-x t t") 'treemacs)
 
-
 ;; developer's tools
-(maybe-require-package 'ack)
-
 (maybe-require-package 'dash-docs)
 
 (maybe-require-package 'sdcv)
+
+;; clipboard
+(maybe-require-package 'xclip)
+
 
 
 (setq package-check-signature nil)
