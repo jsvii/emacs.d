@@ -79,9 +79,13 @@
 (maybe-require-package 'xclip)
 
 
-
 (setq package-check-signature nil)
 
+(when (maybe-require-package 'undo-tree)
+  (setq undo-tree-history-directory-alist `(("." . "~/.emacs.d/undo/")))
+  (require 'undo-tree)
+  (with-eval-after-load 'undo-tree
+    (global-undo-tree-mode)))
 
 (provide 'custom-utils)
 ;;; custom-utils.el ends here

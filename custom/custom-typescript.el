@@ -1,4 +1,4 @@
-;;; custom-typescript.el --- all lsp mode for development -*- lexical-binding: t -*-
+;;; custom-typescript.el --- typescript mode development -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; lsp & dap
 ;;; Code:

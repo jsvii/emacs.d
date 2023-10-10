@@ -15,8 +15,8 @@
 (require 'custom-org)
 (require 'custom-ui)
 (require 'custom-utils)
-;;(require 'custom-lsp)
 (require 'custom-coding-style)
+(require 'custom-debug)
 (require 'custom-typescript)
 
 (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
