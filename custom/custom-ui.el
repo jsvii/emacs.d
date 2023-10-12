@@ -1,11 +1,6 @@
 ;;; custom-ui.el --- gui configurations -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
-
-(if (display-graphic-p)
-    (progn
-      (set-face-attribute 'default nil :height 200)))
-
 (global-hl-line-mode +1)
 
 ;; themes

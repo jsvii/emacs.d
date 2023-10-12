@@ -11,10 +11,11 @@
 
 ;; use-package in future
 ;;(require 'custom-profile)
+(require 'custom-utils)
+(require 'custom-ui)
 (require 'custom-cn)
 (require 'custom-org)
-(require 'custom-ui)
-(require 'custom-utils)
+
 (require 'custom-coding-style)
 (require 'custom-debug)
 (require 'custom-typescript)

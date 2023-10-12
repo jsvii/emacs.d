@@ -2,10 +2,19 @@
 ;;; Commentary:
 ;;; Code:
 
+;; treemacs
 (maybe-require-package 'treemacs)
 (maybe-require-package 'treemacs-projectile)
 (maybe-require-package 'treemacs-icons-dired)
 (maybe-require-package 'treemacs-magit)
+(maybe-require-package 'nerd-icons)
+
+(when (maybe-require-package 'treemacs-nerd-icons)
+  (require 'treemacs-nerd-icons))
+
+(when (maybe-require-package 'nerd-icons-dired)
+  (add-hook 'dired-mode-hook #'nerd-icons-dired-mode)
+  )
 
 (with-eval-after-load 'treemacs
   (progn
@@ -62,24 +71,20 @@
     (global-set-key (kbd "C-x t B") 'treemacs-bookmark)
     (global-set-key (kbd "C-x t C-t") 'treemacs-find-file)
     (global-set-key (kbd "C-x t M-t") 'treemacs-find-tag)
+    (treemacs-load-theme "nerd-icons")
     )
   )
+
+(global-set-key (kbd "C-x t t") 'treemacs)
 
 (with-eval-after-load 'treemacs-magit
   (treemacs-icons-dired-mode))
 
-(global-set-key (kbd "C-x t t") 'treemacs)
-
-;; developer's tools
-(maybe-require-package 'dash-docs)
-
+;; sdcv dict
 (maybe-require-package 'sdcv)
 
 ;; clipboard
 (maybe-require-package 'xclip)
-
-
-(setq package-check-signature nil)
 
 (when (maybe-require-package 'undo-tree)
   (setq undo-tree-history-directory-alist `(("." . "~/.emacs.d/undo/")))
