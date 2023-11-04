@@ -26,16 +26,14 @@
                    :font (font-spec :family font
                                     :weight 'normal
                                     :slant 'normal
-                                    :size (cond ((eq system-type 'gnu/linux) 24)
-                                                ((eq system-type 'windows-nt) 24)))))
+                                    :size 24)))
   (cl-loop for font in '("OpenSansEmoji" "Noto Color Emoji" "Segoe UI Emoji"
                          "EmojiOne Color" "Apple Color Emoji" "Symbola" "Symbol")
            when (font-installed-p font)
            return (set-fontset-font t 'unicode
                                     (font-spec :family font
-                                               :size (cond ((eq system-type 'gnu/linux) 24)
-                                                           ((eq system-type 'windows-nt) 24)))
-                                    nil 'prepend))
+                                               :size 24
+                                               nil 'prepend)))
   (cl-loop for font in '("Sarasa Mono Slab SC" "思源黑体 CN" "思源宋体 CN" "微软雅黑 CN"
                          "Source Han Sans CN" "Source Han Serif CN"
                          "WenQuanYi Micro Hei" "文泉驿等宽微米黑"
@@ -45,16 +43,15 @@
                                     (font-spec :name font
                                                :weight 'normal
                                                :slant 'normal
-                                               :size (cond ((eq system-type 'gnu/linux) 23)
-                                                           ((eq system-type 'windows-nt) 23)))))
+                                               :size 24)))
   (cl-loop for font in '("HanaMinB" "SimSun-ExtB")
            when (font-installed-p font)
            return (set-fontset-font t '(#x20000 . #x2A6DF)
                                     (font-spec :name font
                                                :weight 'normal
                                                :slant 'normal
-                                               :size (cond ((eq system-type 'gnu/linux) 24)
-                                                           ((eq system-type 'windows-nt) 24))))))
+                                               :size 24))))
+
 
 
 (provide 'custom-cn)
