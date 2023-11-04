@@ -20,7 +20,6 @@
 (require 'custom-debug)
 (require 'custom-typescript)
 
-(setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
 
 (provide 'custom-init)
 ;;; custom-init.el ends here
