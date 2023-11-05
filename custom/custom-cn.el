@@ -51,6 +51,12 @@
         (other-font-list
          '("HanaMinB" "SimSun-ExtB")
          )
+        (font-size-normal
+         (cond
+          ((eq system-type 'gnu/linux) 26)
+          ((eq system-type 'darwin) 24)
+          )
+         )
         )
     (progn
       (cl-loop for font in default-font-list
@@ -60,12 +66,12 @@
                        :font (font-spec :family font
                                         :weight 'normal
                                         :slant 'normal
-                                        :size 26)))
+                                        :size font-size-normal)))
       (cl-loop for font in unicode-font-list
                when (font-installed-p font)
                return (set-fontset-font t 'unicode
                                         (font-spec :family font
-                                                   :size 26
+                                                   :size font-size-normal
                                                    nil 'prepend)))
       (cl-loop for font in chinese-font-list
                when (font-installed-p font)
@@ -73,14 +79,14 @@
                                         (font-spec :name font
                                                    :weight 'normal
                                                    :slant 'normal
-                                                   :size 26)))
+                                                   :size font-size-normal)))
       (cl-loop for font in other-font-list
                when (font-installed-p font)
                return (set-fontset-font t '(#x20000 . #x2A6DF)
                                         (font-spec :name font
                                                    :weight 'normal
                                                    :slant 'normal
-                                                   :size 26))))))
+                                                   :size font-size-normal))))))
 
 (provide 'custom-cn)
 ;;; custom-cn.el ends here
