@@ -15,44 +15,72 @@
 (defun font-installed-p (font-name)
   "Check if font with FONT-NAME is available."
   (find-font (font-spec :name font-name)))
-
-(when (and (display-graphic-p) (eq system-type 'gnu/linux))
-  (cl-loop for font in '("JetBrains Mono" "Cascadia Code" "SF Mono" "Source Code Pro"
-                         "Fira Code" "Menlo" "Monaco" "Dejavu Sans Mono"
-                         "Lucida Console" "Consolas" "SAS Monospace" "Iosevka Nerd Font Mono" )
-           when (font-installed-p font)
-           return (set-face-attribute
-                   'default nil
-                   :font (font-spec :family font
-                                    :weight 'normal
-                                    :slant 'normal
-                                    :size 24)))
-  (cl-loop for font in '("OpenSansEmoji" "Noto Color Emoji" "Segoe UI Emoji"
-                         "EmojiOne Color" "Apple Color Emoji" "Symbola" "Symbol")
-           when (font-installed-p font)
-           return (set-fontset-font t 'unicode
-                                    (font-spec :family font
-                                               :size 24
-                                               nil 'prepend)))
-  (cl-loop for font in '("Sarasa Mono Slab SC" "思源黑体 CN" "思源宋体 CN" "微软雅黑 CN"
-                         "Source Han Sans CN" "Source Han Serif CN"
-                         "WenQuanYi Micro Hei" "文泉驿等宽微米黑"
-                         "Microsoft Yahei UI" "Microsoft Yahei")
-           when (font-installed-p font)
-           return (set-fontset-font t '(#x4e00 . #x9fff)
-                                    (font-spec :name font
-                                               :weight 'normal
-                                               :slant 'normal
-                                               :size 24)))
-  (cl-loop for font in '("HanaMinB" "SimSun-ExtB")
-           when (font-installed-p font)
-           return (set-fontset-font t '(#x20000 . #x2A6DF)
-                                    (font-spec :name font
-                                               :weight 'normal
-                                               :slant 'normal
-                                               :size 24))))
-
-
+(when
+    (display-graphic-p)
+  (let (
+        (default-font-list
+         (cond
+          ((eq system-type 'gnu/linux)
+           '("JetBrains Mono" "Cascadia Code" "SF Mono" "Source Code Pro"
+             "Fira Code" "Menlo" "Monaco" "Dejavu Sans Mono"
+             "Lucida Console" "Consolas" "SAS Monospace" "Iosevka Nerd Font Mono" ))
+          ((eq system-type 'darwin)
+           '("JetBrains Mono"))
+          ))
+        (unicode-font-list
+         (cond
+          ((eq system-type 'gnu/linux)
+           '("Hack Nerd Font Mono" "OpenSansEmoji" "Noto Color Emoji" "Segoe UI Emoji"
+             "EmojiOne Color" "Apple Color Emoji" "Symbola" "Symbol")
+           )
+          ((eq system-type 'darwin)
+           '("Hack Nerd Font Mono"))
+          ))
+        (chinese-font-list
+         (cond
+          ((eq system-type 'gnu/linux)
+           '("Sarasa Mono Slab SC" "思源黑体 CN" "思源宋体 CN"
+             "Source Han Sans CN" "Source Han Serif CN"
+             "WenQuanYi Micro Hei" "文泉驿等宽微米黑"
+             "Microsoft Yahei UI" "Microsoft Yahei")
+           )
+          ((eq system-type 'darwin)
+           '("PingFang SC"))
+          )
+         )
+        (other-font-list
+         '("HanaMinB" "SimSun-ExtB")
+         )
+        )
+    (progn
+      (cl-loop for font in default-font-list
+               when (font-installed-p font)
+               return (set-face-attribute
+                       'default nil
+                       :font (font-spec :family font
+                                        :weight 'normal
+                                        :slant 'normal
+                                        :size 26)))
+      (cl-loop for font in unicode-font-list
+               when (font-installed-p font)
+               return (set-fontset-font t 'unicode
+                                        (font-spec :family font
+                                                   :size 26
+                                                   nil 'prepend)))
+      (cl-loop for font in chinese-font-list
+               when (font-installed-p font)
+               return (set-fontset-font t '(#x4e00 . #x9fff)
+                                        (font-spec :name font
+                                                   :weight 'normal
+                                                   :slant 'normal
+                                                   :size 26)))
+      (cl-loop for font in other-font-list
+               when (font-installed-p font)
+               return (set-fontset-font t '(#x20000 . #x2A6DF)
+                                        (font-spec :name font
+                                                   :weight 'normal
+                                                   :slant 'normal
+                                                   :size 26))))))
 
 (provide 'custom-cn)
 ;;; custom-cn.el ends here
