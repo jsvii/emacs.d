@@ -25,7 +25,10 @@
              "Fira Code" "Menlo" "Monaco" "Dejavu Sans Mono"
              "Lucida Console" "Consolas" "SAS Monospace" "Iosevka Nerd Font Mono" ))
           ((eq system-type 'darwin)
-           '("JetBrains Mono"))
+           '("JetBrains Mono" "Cascadia Code" "SF Mono" "Source Code Pro"
+             "Fira Code" "Menlo" "Monaco" "Dejavu Sans Mono"
+             "Lucida Console" "Consolas" "SAS Monospace" "Iosevka Nerd Font Mono" )
+           )
           ))
         (unicode-font-list
          (cond
