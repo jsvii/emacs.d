@@ -19,45 +19,22 @@
     (display-graphic-p)
   (let (
         (default-font-list
-         (cond
-          ((eq system-type 'gnu/linux)
-           '("JetBrains Mono" "Cascadia Code" "SF Mono" "Source Code Pro"
-             "Fira Code" "Menlo" "Monaco" "Dejavu Sans Mono"
-             "Lucida Console" "Consolas" "SAS Monospace" "Iosevka Nerd Font Mono" ))
-          ((eq system-type 'darwin)
-           '("JetBrains Mono" "Cascadia Code" "SF Mono" "Source Code Pro"
-             "Fira Code" "Menlo" "Monaco" "Dejavu Sans Mono"
-             "Lucida Console" "Consolas" "SAS Monospace" "Iosevka Nerd Font Mono" )
-           )
-          ))
+         '("JetBrains Mono" "Cascadia Code" "SF Mono" "Source Code Pro"
+           "Fira Code" "Menlo" "Monaco" "Dejavu Sans Mono"
+           "Lucida Console" "Consolas" "SAS Monospace" "Iosevka Nerd Font Mono" ))
         (unicode-font-list
-         (cond
-          ((eq system-type 'gnu/linux)
-           '("Hack Nerd Font Mono" "OpenSansEmoji" "Noto Color Emoji" "Segoe UI Emoji"
-             "EmojiOne Color" "Apple Color Emoji" "Symbola" "Symbol")
-           )
-          ((eq system-type 'darwin)
-           '("Hack Nerd Font Mono"))
-          ))
-        (chinese-font-list
-         (cond
-          ((eq system-type 'gnu/linux)
-           '("Sarasa Mono Slab SC" "思源黑体 CN" "思源宋体 CN"
-             "Source Han Sans CN" "Source Han Serif CN"
-             "WenQuanYi Micro Hei" "文泉驿等宽微米黑"
-             "Microsoft Yahei UI" "Microsoft Yahei")
-           )
-          ((eq system-type 'darwin)
-           '("PingFang SC"))
-          )
-         )
-        (other-font-list
-         '("HanaMinB" "SimSun-ExtB")
+         '("Hack Nerd Font Mono" "OpenSansEmoji" "Noto Color Emoji" "Segoe UI Emoji"
+           "EmojiOne Color" "Apple Color Emoji" "Symbola" "Symbol"))
+        (han-font-list
+         '("Sarasa Mono Slab SC" "思源黑体 CN" "思源宋体 CN"
+           "Source Han Sans CN" "Source Han Serif CN"
+           "WenQuanYi Micro Hei" "文泉驿等宽微米黑"
+           "Microsoft Yahei UI" "Microsoft Yahei")
          )
         (font-size-normal
          (cond
-          ((eq system-type 'gnu/linux) 26)
-          ((eq system-type 'darwin) 24)
+          ((eq system-type 'gnu/linux) 22)
+          ((eq system-type 'darwin) 20)
           )
          )
         )
@@ -76,20 +53,14 @@
                                         (font-spec :family font
                                                    :size font-size-normal
                                                    nil 'prepend)))
-      (cl-loop for font in chinese-font-list
+      (cl-loop for font in han-font-list
                when (font-installed-p font)
-               return (set-fontset-font t '(#x4e00 . #x9fff)
+               return (set-fontset-font t 'han
                                         (font-spec :name font
                                                    :weight 'normal
                                                    :slant 'normal
                                                    :size font-size-normal)))
-      (cl-loop for font in other-font-list
-               when (font-installed-p font)
-               return (set-fontset-font t '(#x20000 . #x2A6DF)
-                                        (font-spec :name font
-                                                   :weight 'normal
-                                                   :slant 'normal
-                                                   :size font-size-normal))))))
+      )))
 
 (provide 'custom-cn)
 ;;; custom-cn.el ends here
