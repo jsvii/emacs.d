@@ -19,6 +19,7 @@
 (require 'custom-coding-style)
 (require 'custom-debug)
 (require 'custom-typescript)
+(require 'custom-perspective)
 
 
 (provide 'custom-init)
