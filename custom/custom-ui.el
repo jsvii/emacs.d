@@ -23,6 +23,8 @@
               '(sanityinc-tomorrow-eighties
                 gruvbox-dark-medium))
 
+(add-to-list 'auto-mode-alist '("\\.svg\\'" . image-mode))
+
 (provide 'custom-ui)
 
 ;;; custom-ui.el ends here
