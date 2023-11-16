@@ -8,9 +8,9 @@
   (persp-mode-prefix-key (kbd "C-z"))
   (persp-state-default-file "~/.emacs.d/persistant/perspective-auto-save")
   :bind
-  (
-   ("C-x k" . persp-kill-buffer*)
-   ("C-x C-b" . persp-list-buffers))
+  (("C-x k" . persp-kill-buffer*)
+   ("C-x C-b" . persp-list-buffers)
+   ("C-x b" . persp-switch-to-buffer))
   :init
   (persp-mode)
   :hook
