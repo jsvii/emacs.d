@@ -14,6 +14,7 @@
 (require 'custom-utils)
 (require 'custom-ui)
 (require 'custom-cn)
+(require 'custom-rtx)
 (require 'custom-org)
 
 (require 'custom-coding-style)
