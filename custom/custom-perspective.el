@@ -10,7 +10,7 @@
   :bind
   (("C-x k" . persp-kill-buffer*)
    ("C-x C-b" . persp-list-buffers)
-   ("C-x b" . persp-switch-to-buffer))
+   ("C-x b" . persp-switch-to-buffer*))
   :init
   (persp-mode)
   :hook
