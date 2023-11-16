@@ -19,9 +19,4 @@
 ;;                      (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)))
 ;;          ))
 
-
-
-
-
-
 ;;; custom-java.el ends here

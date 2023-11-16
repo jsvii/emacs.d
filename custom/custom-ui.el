@@ -24,4 +24,5 @@
                 gruvbox-dark-medium))
 
 (provide 'custom-ui)
+
 ;;; custom-ui.el ends here

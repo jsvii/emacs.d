@@ -33,7 +33,7 @@
          )
         (font-size-normal
          (cond
-          ((eq system-type 'gnu/linux) 22)
+          ((eq system-type 'gnu/linux) 20)
           ((eq system-type 'darwin) 20)
           )
          )
